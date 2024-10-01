@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-width: 28rem;
+  color: #9a2d2f;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: #9a2d2f;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+h1,
+div,
+img {
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  max-width: 80rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+
+.header-container {
+  border-bottom: 0.2rem solid #9a2d2f;
+}
+
+.footer-container {
+  border-top: 0.2rem solid #9a2d2f;
+  padding: 1rem;
+}
+
+.canvas {
+  margin: auto;
+}
+
+.footer-rslogo,
+.footer-git,
+.footer-year {
+  width: 3rem;
+  height: 3rem;
+}
+
+.footer-img {
+  fill: #000;
+  border: #ffb749 0.1rem solid;
+  border-radius: 50%;
+  background-color: #ffb749;
+  transition: box-shadow 0.3s linear;
+}
+
+button:hover .footer-img {
+  box-shadow: 0 0 0.1rem 0.1rem #ffb749;
+}
+
+button:active .footer-img {
+  box-shadow: 0 0 0.1rem 0.1rem #000;
+}
+
+.footer-year {
+  border-radius: 50%;
+  border: #ffb749 0.1rem solid;
+  background-color: #000;
+  color: #ffb749;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
