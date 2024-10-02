@@ -27,12 +27,31 @@ let y = 10;
 let score = 0;
 const gap = 100;
 
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    y -= 15;
+  }
+});
+
+let enemy = [];
+
+enemy[0] = {
+  x: canvas.width,
+  y: 0,
+};
+
 function draw() {
-  context.drawImage(background, 0, 0, 900, 1000);
-  context.drawImage(enemyUp, 100, 0);
-  context.drawImage(enemyBottom, 100, 0 + enemyUp.height + gap);
-  context.drawImage(floor, 0, canvas.height - floor.height, 900, 300);
+  context.drawImage(background, 0, 0, 700, 512);
+  context.drawImage(enemyUp, 200, 0);
+  context.drawImage(enemyBottom, 200, enemyUp.height + gap);
+  context.drawImage(floor, 0, canvas.height - floor.height, 700, 512);
   context.drawImage(bird, x, y);
+
+  y += 1;
+
+  if (y === canvas.height - floor.height - bird.height) {
+    location.reload();
+  }
 
   requestAnimationFrame(draw);
 }

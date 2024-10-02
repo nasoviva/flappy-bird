@@ -8,18 +8,53 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
     <title>Flappy Bird</title>
   </head>
   <body>
     <header>
-      <div class="container header-container"></div>
+      <div class="container header-container">
+        <div class="scoreboard">Scoreboard:</div>
+        <table class="table">
+          <tr>
+            <th>№</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+          </tr>
+          <tr>
+            <td>Score</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+        </table>
+        <div class="settings">Rules of the game:</div>
+        <p class="rules">
+          Press <strong>Enter</strong> to control the bird<br />Avoid obstacles,
+          top and bottom boundaries
+        </p>
+      </div>
     </header>
     <main>
       <div class="container main-container">
-        <canvas class="canvas" width="900" height="1000"></canvas>
+        <canvas class="canvas" width="700" height="512"></canvas>
       </div>
     </main>
     <footer>
