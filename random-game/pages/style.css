@@ -28,7 +28,6 @@ button {
 
 a {
   text-decoration: none;
-  color: #9a2d2f;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -59,8 +58,9 @@ strong {
   margin: 1rem auto;
 }
 
-.scoreboard {
-  padding: 2rem;
+.scoreboard,
+.result {
+  padding: 1rem;
   font-size: 2rem;
 }
 
@@ -83,7 +83,7 @@ td:first-child {
 }
 
 .settings {
-  padding: 2rem;
+  padding: 1rem;
   font-size: 2rem;
 }
 
