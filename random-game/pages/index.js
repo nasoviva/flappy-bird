@@ -35,11 +35,12 @@ let savedScores = JSON.parse(localStorage.getItem("scores"));
 let x = 100;
 let y = 10;
 let score = 0;
+const max_score = 15;
 const gap = 100;
 const result = document.querySelector(".result");
 const startButton = document.querySelector(".start");
 const stopButton = document.querySelector(".stop");
-let isGameRunning = false;
+let isGame = false;
 
 let enemy = [];
 enemy[0] = {
@@ -49,7 +50,6 @@ enemy[0] = {
 
 function updateScoreTable() {
   const scoreArr = document.querySelectorAll("td");
-
   for (let i = 0; i < savedScores.length; i++) {
     scoreArr[i + 1].textContent = savedScores[i];
   }
@@ -66,18 +66,18 @@ function addScore(newScore) {
 }
 
 function start() {
-  isGameRunning = true;
+  isGame = true;
   music.currentTime = 0;
   score = 0;
   y = 10;
   enemy = [{ x: canvas.width, y: 0 }];
   startButton.classList.remove("open");
   stopButton.classList.add("open");
-  draw();
+  initGame();
 }
 
 function stop() {
-  isGameRunning = false;
+  isGame = false;
   music.pause();
   startButton.classList.add("open");
   stopButton.classList.remove("open");
@@ -85,24 +85,23 @@ function stop() {
 
 function restart() {
   addScore(score);
-  if (score < 20) {
+  if (score < max_score) {
     lose.play();
+    result.textContent = "You Lose! Score: " + score;
   } else {
     win.play();
+    result.textContent = "You Win! Score: " + score;
   }
-  music.currentTime = 0;
   score = 0;
   y = 10;
   enemy = [{ x: canvas.width, y: 0 }];
-  startButton.classList.add("open");
-  stopButton.classList.remove("open");
   stop();
 }
 
 updateScoreTable();
 
-function draw() {
-  if (!isGameRunning) {
+function initGame() {
+  if (!isGame) {
     return;
   }
   context.drawImage(background, 0, 0, 700, 512);
@@ -116,6 +115,27 @@ function draw() {
 
     enemy[i].x -= 1;
 
+    if (enemy[i].x == 300 && i < 5) {
+      enemy.push({
+        x: canvas.width,
+        y: Math.floor(Math.random() * enemyUp.height) - enemyUp.height,
+      });
+    }
+
+    if (enemy[i].x == 400 && i >= 5 && i < 10) {
+      enemy.push({
+        x: canvas.width,
+        y: Math.floor(Math.random() * enemyUp.height) - enemyUp.height,
+      });
+    }
+
+    if (enemy[i].x == 500 && i >= 10 && i < 14) {
+      enemy.push({
+        x: canvas.width,
+        y: Math.floor(Math.random() * enemyUp.height) - enemyUp.height,
+      });
+    }
+
     if (enemy[i].x === x - enemyUp.width) {
       score++;
       score_add.play();
@@ -123,8 +143,8 @@ function draw() {
 
     if (
       y >= canvas.height - floor.height - bird.height ||
-      y === 0 ||
-      score === 20 ||
+      y <= 0 ||
+      score === max_score ||
       (x >= enemy[i].x - bird.width &&
         x <= enemy[i].x + enemyUp.width &&
         (y <= enemy[i].y + enemyUp.height ||
@@ -132,20 +152,19 @@ function draw() {
     ) {
       restart();
     }
+    context.drawImage(floor, 0, canvas.height - floor.height, 700, 512);
+    context.drawImage(bird, x, y);
   }
-  context.drawImage(floor, 0, canvas.height - floor.height, 700, 512);
-  context.drawImage(bird, x, y);
 
   y += 1;
-  
-  result.textContent = "Score: " + score;
 
-  if (isGameRunning) {
-    requestAnimationFrame(draw);
+  if (isGame) {
+    result.textContent = "Score: " + score;
+    requestAnimationFrame(initGame);
   }
 }
 
-enemyBottom.onload = draw;
+enemyBottom.onload = initGame;
 
 startButton.addEventListener("click", () => {
   if (!music.playing) {
@@ -156,6 +175,12 @@ startButton.addEventListener("click", () => {
 
 stopButton.addEventListener("click", () => {
   stop();
+});
+
+music.addEventListener("ended", () => {
+  if (!music.playing) {
+    music.play();
+  }
 });
 
 document.addEventListener("keydown", (event) => {

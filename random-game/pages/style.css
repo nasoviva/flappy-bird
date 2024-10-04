@@ -13,8 +13,8 @@ body {
   padding: 0;
   min-height: 100vh;
   min-width: 43.75rem;
-  background-color: #ffb749;
-  color: #000;
+  background-color: #000;
+  color: #ffb749;
 }
 
 button {
@@ -51,48 +51,25 @@ strong {
   align-items: center;
   justify-content: space-between;
   white-space: nowrap;
-}
-
-.header-container {
-  flex-direction: column;
   margin: 1rem auto;
-}
-
-.scoreboard {
-  padding: 1rem;
-  font-size: 2rem;
-}
-
-.result,
-.settings {
-  font-size: 2rem;
-  margin: 2rem auto;
   text-align: center;
 }
 
-.table,
-tr,
-th,
-td {
-  border: #000 0.1rem solid;
-  border-collapse: collapse;
+.header-container,
+.main-container {
+  flex-direction: column;
 }
 
-th,
-td {
-  padding: 1rem;
-}
-
-th:first-child,
-td:first-child {
-  font-size: 1.3rem;
+.div-header {
+  font-size: 2rem;
+  margin: 2rem auto;
 }
 
 .rules {
+  border: 0.1rem solid #ffb749;
   width: 43rem;
-  margin: 0 auto;
+  padding: 1rem;
   white-space: wrap;
-  text-align: center;
   line-height: 2rem;
 }
 
@@ -105,9 +82,7 @@ td:first-child {
   font-family: "Press Start 2P", system-ui;
   padding: 0.2rem;
   margin: 2rem auto;
-  background-color: #000;
-  color: #ffb749;
-  border: #ffb749 0.2rem solid;
+  background-color: #ffb749;
   border-radius: 1rem;
   transition: box-shadow 0.3s linear;
 }
@@ -115,28 +90,49 @@ td:first-child {
 .start:hover,
 .stop:hover,
 button:hover .footer-img {
-  box-shadow: 0 0 1rem 1rem #000;
+  box-shadow: 0 0 0.3rem 0.3rem #ffb749;
 }
 
 .start:active,
 .stop:active,
 button:active .footer-img {
-  box-shadow: 0 0 0.1rem 0.1rem #000;
+  box-shadow: 0 0 0.2rem 0.2rem #ffb749;
 }
 
 .open {
   display: block;
 }
 
-.footer-container {
-  width: 43.75rem;
-  margin: 1rem auto;
+.canvas {
+  background-color: none;
+  margin: auto;
+  border: #ffb749 0.2rem solid;
+  border-radius: 2rem;
 }
 
-.canvas {
-  margin: auto;
-  border: #000 0.2rem solid;
-  border-radius: 2rem;
+.table,
+tr,
+th,
+td {
+  border: #ffb749 0.1rem solid;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  width: 4rem;
+  height: 3rem;
+  padding: 1rem;
+}
+
+th:first-child,
+td:first-child {
+  font-size: 1.3rem;
+}
+
+.footer-container {
+  width: 43.75rem;
+  margin-top: 2rem;
 }
 
 .footer-rslogo,

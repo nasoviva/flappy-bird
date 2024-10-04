@@ -15,50 +15,61 @@
   </head>
   <body>
     <header>
-      <div class="container header-container">
-        <div class="scoreboard">Scoreboard:</div>
-        <table class="table">
-          <tr>
-            <th>Game</th>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-            <th>6</th>
-            <th>7</th>
-            <th>8</th>
-            <th>9</th>
-            <th>10</th>
-          </tr>
-          <tr>
-            <td>Score</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-        </table>
-        <div class="settings">Rules of the game:</div>
-        <p class="rules">
-          Press <strong>Enter</strong> to control the bird<br />Avoid obstacles,
-          top and bottom boundaries
-        </p>
-        <button class="start open">Start</button>
-        <button class="stop">Stop</button>
-      </div>
+      <section class="header">
+        <div class="container header-container">
+          <div class="settings">
+            <div class="div-header">Rules of the game:</div>
+            <p class="rules">
+              Press <strong>Start</strong> to start the game<br />
+              Press <strong>Stop</strong> to stop the game<br />
+              Press <strong>Enter</strong> to control the bird<br />
+              Avoid obstacles, top and bottom boundaries<br />
+              Score the maximum number of points
+            </p>
+          </div>
+          <button class="start open">Start</button>
+          <button class="stop">Stop</button>
+        </div>
+      </section>
     </header>
     <main>
-      <div class="container main-container">
-        <canvas class="canvas" width="700" height="512"></canvas>
-      </div>
-      <div class="result">Score: 0</div>
+      <section class="main">
+        <div class="container main-container">
+          <canvas class="canvas" width="700" height="512"></canvas>
+          <div class="result div-header">Score: 0</div>
+          <div class="scoreboard">
+            <div class="div-header">Scoreboard:</div>
+            <table class="table">
+              <tr>
+                <th>Game</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+              </tr>
+              <tr>
+                <td>Score</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
     </main>
     <footer>
       <section class="footer">
