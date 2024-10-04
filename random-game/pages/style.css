@@ -58,10 +58,16 @@ strong {
   margin: 1rem auto;
 }
 
-.scoreboard,
-.result {
+.scoreboard {
   padding: 1rem;
   font-size: 2rem;
+}
+
+.result,
+.settings {
+  font-size: 2rem;
+  margin: 2rem auto;
+  text-align: center;
 }
 
 .table,
@@ -82,17 +88,44 @@ td:first-child {
   font-size: 1.3rem;
 }
 
-.settings {
-  padding: 1rem;
-  font-size: 2rem;
-}
-
 .rules {
   width: 43rem;
   margin: 0 auto;
   white-space: wrap;
   text-align: center;
   line-height: 2rem;
+}
+
+.start,
+.stop {
+  display: none;
+  width: 12rem;
+  height: 6rem;
+  font-size: 2rem;
+  font-family: "Press Start 2P", system-ui;
+  padding: 0.2rem;
+  margin: 2rem auto;
+  background-color: #000;
+  color: #ffb749;
+  border: #ffb749 0.2rem solid;
+  border-radius: 1rem;
+  transition: box-shadow 0.3s linear;
+}
+
+.start:hover,
+.stop:hover,
+button:hover .footer-img {
+  box-shadow: 0 0 1rem 1rem #000;
+}
+
+.start:active,
+.stop:active,
+button:active .footer-img {
+  box-shadow: 0 0 0.1rem 0.1rem #000;
+}
+
+.open {
+  display: block;
 }
 
 .footer-container {
@@ -119,14 +152,6 @@ td:first-child {
   border-radius: 50%;
   background-color: #ffb749;
   transition: box-shadow 0.3s linear;
-}
-
-button:hover .footer-img {
-  box-shadow: 0 0 0.1rem 0.1rem #ffb749;
-}
-
-button:active .footer-img {
-  box-shadow: 0 0 0.1rem 0.1rem #000;
 }
 
 .footer-year {

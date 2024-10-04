@@ -37,6 +37,9 @@ let y = 10;
 let score = 0;
 const gap = 100;
 const result = document.querySelector(".result");
+const startButton = document.querySelector(".start");
+const stopButton = document.querySelector(".stop");
+let isGameRunning = false;
 
 let enemy = [];
 enemy[0] = {
@@ -63,37 +66,46 @@ function addScore(newScore) {
 }
 
 function start() {
-  alert("Start Game?");
-  document.addEventListener("keydown", () => {
-    if (!music.playing) {
-      music.play();
-    }
-  });
+  isGameRunning = true;
+  music.currentTime = 0;
+  score = 0;
+  y = 10;
+  enemy = [{ x: canvas.width, y: 0 }];
+  startButton.classList.remove("open");
+  stopButton.classList.add("open");
+  draw();
+}
+
+function stop() {
+  isGameRunning = false;
+  music.pause();
+  startButton.classList.add("open");
+  stopButton.classList.remove("open");
 }
 
 function restart() {
   addScore(score);
-  music.pause();
   if (score < 20) {
     lose.play();
-    alert(`Game Over! Your score: ${score}`);
   } else {
     win.play();
-    alert(`You Win! Your score: ${score}`);
   }
   music.currentTime = 0;
   score = 0;
   y = 10;
   enemy = [{ x: canvas.width, y: 0 }];
-  start();
+  startButton.classList.add("open");
+  stopButton.classList.remove("open");
+  stop();
 }
 
 updateScoreTable();
-start();
 
 function draw() {
+  if (!isGameRunning) {
+    return;
+  }
   context.drawImage(background, 0, 0, 700, 512);
-
   for (let i = 0; i < enemy.length; i += 1) {
     context.drawImage(enemyUp, enemy[i].x, enemy[i].y);
     context.drawImage(
@@ -108,25 +120,43 @@ function draw() {
       score++;
       score_add.play();
     }
+
+    if (
+      y >= canvas.height - floor.height - bird.height ||
+      y === 0 ||
+      score === 20 ||
+      (x >= enemy[i].x - bird.width &&
+        x <= enemy[i].x + enemyUp.width &&
+        (y <= enemy[i].y + enemyUp.height ||
+          y >= enemy[i].y + enemyUp.height - bird.height + gap))
+    ) {
+      restart();
+    }
   }
   context.drawImage(floor, 0, canvas.height - floor.height, 700, 512);
   context.drawImage(bird, x, y);
 
   y += 1;
-
-  if (
-    y === canvas.height - floor.height - bird.height ||
-    y === 0 ||
-    score === 20
-  ) {
-    restart();
-  }
+  
   result.textContent = "Score: " + score;
-  requestAnimationFrame(draw);
+
+  if (isGameRunning) {
+    requestAnimationFrame(draw);
+  }
 }
 
 enemyBottom.onload = draw;
-music.play();
+
+startButton.addEventListener("click", () => {
+  if (!music.playing) {
+    music.play();
+  }
+  start();
+});
+
+stopButton.addEventListener("click", () => {
+  stop();
+});
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
