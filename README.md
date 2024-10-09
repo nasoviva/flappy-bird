@@ -1,5 +1,5 @@
 <div align="center">
-  <h1><a href="https://nasoviva.github.io/flappy-bird/random-game/pages/index.html">Flappy bird</a></h1>
+  <h1><a href="https://nasoviva.github.io/random-game/random-game/pages/index.html">Flappy bird</a></h1>
 </div>
 <br>
 <p align="center">The game involves navigating a bird through obstacles with increasing
