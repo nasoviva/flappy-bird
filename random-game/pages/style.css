@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-family: "Press Start 2P", system-ui;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-width: 43.75rem;
+  background-color: #000;
+  color: #ffb749;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+div {
+  padding: 0;
+  margin: 0;
+}
+
+strong {
+  font-size: 1.2rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.header-container,
+.main-container {
+  flex-direction: column;
+}
+
+.div-header {
+  font-size: 2rem;
+  margin: 2rem auto;
+}
+
+.rules {
+  border: 0.1rem solid #ffb749;
+  width: 43rem;
+  padding: 1rem;
+  white-space: wrap;
+  line-height: 2rem;
+}
+
+.start,
+.stop {
+  display: none;
+  width: 12rem;
+  height: 6rem;
+  font-size: 2rem;
+  font-family: "Press Start 2P", system-ui;
+  padding: 0.2rem;
+  margin: 2rem auto;
+  background-color: #ffb749;
+  border-radius: 1rem;
+  transition: box-shadow 0.3s linear;
+}
+
+.start:hover,
+.stop:hover,
+button:hover .footer-img {
+  box-shadow: 0 0 0.3rem 0.3rem #ffb749;
+}
+
+.start:active,
+.stop:active,
+button:active .footer-img {
+  box-shadow: 0 0 0.2rem 0.2rem #ffb749;
+}
+
+.open {
+  display: block;
+}
+
+.canvas {
+  background-color: none;
+  margin: auto;
+  border: #ffb749 0.2rem solid;
+  border-radius: 2rem;
+}
+
+.table,
+tr,
+th,
+td {
+  border: #ffb749 0.1rem solid;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  width: 4rem;
+  height: 3rem;
+  padding: 1rem;
+}
+
+th:first-child,
+td:first-child {
+  font-size: 1.3rem;
+}
+
+.footer-container {
+  width: 43.75rem;
+  margin-top: 2rem;
+}
+
+.footer-rslogo,
+.footer-git,
+.footer-year {
+  width: 3rem;
+  height: 3rem;
+}
+
+.footer-img {
+  fill: #000;
+  border: #ffb749 0.1rem solid;
+  border-radius: 50%;
+  background-color: #ffb749;
+  transition: box-shadow 0.3s linear;
+}
+
+.footer-year {
+  border-radius: 50%;
+  border: #ffb749 0.1rem solid;
+  background-color: #000;
+  color: #ffb749;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+}
