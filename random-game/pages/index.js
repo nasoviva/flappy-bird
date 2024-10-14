@@ -28,9 +28,7 @@ lose.src = "../assets/audio/lose.mp3";
 const score_add = new Audio();
 score_add.src = "../assets/audio/score.mp3";
 
-let scores = [];
-localStorage.setItem("scores", JSON.stringify(scores));
-let savedScores = JSON.parse(localStorage.getItem("scores"));
+let savedScores = JSON.parse(localStorage.getItem("scores")) || [];
 
 let x = 100;
 let y = 10;
